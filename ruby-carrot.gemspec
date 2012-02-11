@@ -9,4 +9,7 @@ Gem::Specification.new do |s|
   s.files       = ["lib/ruby-carrot.rb"]
   s.homepage    =
     'http://voicebunny.com/developers/libraries'
+  s.add_dependency('faraday', '>= 0.7.6')
+  s.add_dependency('faraday_middleware', '>= 0.8.4')
+  s.add_development_dependency('test/unit', '>= 2.4.5')
 end
