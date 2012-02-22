@@ -28,7 +28,7 @@ class CarrotTest  < Test::Unit::TestCase
 
   def test_get_project
     @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
-    response = @lib.all_projects(1)
+    response = @lib.get_project(1)
     response.to_yaml
     assert_equal('1', response['projects'][0]['id'] )
     assert_equal('eng-us', response['projects'][0]['language'] )

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
  s.name        = 'ruby-carrot'
-  s.version     = '0.0.2'
+  s.version     = '0.5'
   s.date        = '2012-01-01'
   s.summary     = "Ruby carrot library"
   s.description = "VoiceBunny library for accessing API using Ruby."

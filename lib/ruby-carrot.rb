@@ -67,7 +67,6 @@ module RubyCarrot
           ping: project[:ping],
           test: project[:test],
           rewardCurrency: project[:rewardCurrency],
-          clientid: @api_id,
           specialInstructions: project[:specialInstructions]
         }
 
@@ -81,7 +80,7 @@ module RubyCarrot
 
     def quote(text)
       resp = @conn.post 'projects/quote.json', {
-          text: text
+          script: text
       }
       resp.body
     end
