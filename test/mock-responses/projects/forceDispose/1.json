@@ -1,0 +1,37 @@
+    {
+    "projects":[
+    {
+    "id":"1",
+    "user":"0",
+    "status":"disposed",
+    "title":"My Test Project",
+    "language":"eng-us",
+    "genderAndAge":"youngAdultMale",
+    "script":{
+    "part001":"This is my script 1."
+    },
+    "wantedReads":"1",
+    "rewardAmount":"0.05",
+    "serviceFee":"0.1",
+    "rewardCurrency":"usd",
+    "specialInstructions":"Special instructions",
+    "lifetime":"1",
+    "assignmentDuration":"609",
+    "test":"0",
+    "created":1315692607,
+    "words":"4",
+    "rewardPerWord":"0.01",
+    "reads":[
+    {
+    "status":"futureRead",
+    "urls":{
+    "part001":{
+    "default":"http:\/\/voicebunny.s3.amazonaws.com\/dev\/1_dfe278c6aa684c0908c930bd0c7684c4.mp3"
+    }
+    }
+    }
+    ]
+    }
+    ],
+    "timestamp":1328912492
+    }

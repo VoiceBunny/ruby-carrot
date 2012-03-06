@@ -1,4 +1,3 @@
 #Ignore files and folders
 .idea
-*.gem
 bin/

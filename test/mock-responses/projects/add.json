@@ -1,0 +1,40 @@
+    {
+    "project":{
+    "id":"2",
+    "user":"0",
+    "status":"disposed",
+    "title":"My Test Project",
+    "language":"eng-us",
+    "genderAndAge":"middleAgeMale",
+    "script":{
+    "part001":"Hello world."
+    },
+    "wantedReads":"1",
+    "rewardAmount":"9.81",
+    "serviceFee":"1.2",
+    "rewardCurrency":"usd",
+    "specialInstructions":"Special instructions",
+    "lifetime":"1",
+    "assignmentDuration":"603",
+    "test":"0",
+    "created":1315692607,
+    "words":"2",
+    "rewardPerWord":"4.91",
+    "genderAndAgeName":"Middle Age Male",
+    "languageName":"English - North American",
+    "reads":[
+    {
+    "id":"1",
+    "user":"0",
+    "status":"approved",
+    "created":1327403069,
+    "urls":{
+    "part001":{
+    "default":"http:\/\/voicebunny.s3.amazonaws.com\/dev\/2_aa70601bd0c0c323872c2d81e93f369f.mp3"
+    }
+    }
+    }
+    ]
+    },
+    "timestamp":1328563322
+    }
