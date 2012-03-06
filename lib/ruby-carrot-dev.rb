@@ -1,3 +1,9 @@
+# Author::    Jorge Vargas  (mailto:jorge.vargas@voicebunny.com)
+# Copyright:: Copyright (c) 2008 Torrenegra IP, LLC.
+# License::   Distributes under Creative Commons CC-BY license http://creativecommons.org/licenses/by/3.0/
+
+# This module hace the class that handle the connection
+# to the VoiceBunny API
 
 module RubyCarrotDev
   class VBCarrot
@@ -78,9 +84,11 @@ module RubyCarrotDev
       resp.body
     end
 
-    def quote(text)
+    def quote(text, contest=0, maxContestEntries=3)
       resp = @conn.post 'projects/quote.json', {
-          script: text
+          script: text,
+          contest: contest,
+          maxContestEntries: maxContestEntries
       }
       resp.body
     end

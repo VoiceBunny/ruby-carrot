@@ -1,6 +1,10 @@
+# Author::    Jorge Vargas  (mailto:jorge.vargas@voicebunny.com)
+# Copyright:: Copyright (c) 2008 Torrenegra IP, LLC.
+# License::   Distributes under Creative Commons CC-BY license http://creativecommons.org/licenses/by/3.0/
+
 Gem::Specification.new do |s|
  s.name        = 'ruby-carrot-dev'
-  s.version     = '0.6'
+  s.version     = '0.6.5'
   s.date        = '2012-03-06'
   s.summary     = "VoiceBunny carrot library"
   s.description = "VoiceBunny library for accessing API using Ruby."
