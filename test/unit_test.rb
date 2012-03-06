@@ -9,7 +9,7 @@ class CarrotTest  < Test::Unit::TestCase
   @lib = nil
 
   def test_balance
-      @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+      @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
       response = @lib.balance
       response.to_yaml
       assert_equal("1000.98",  response['balance']['amount'])
@@ -18,7 +18,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_all_projects
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.all_projects
     response.to_yaml
     assert_equal('2', response['projects'][1]['id'])
@@ -27,7 +27,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_get_project
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.get_project(1)
     response.to_yaml
     assert_equal('1', response['projects'][0]['id'] )
@@ -36,7 +36,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_create_project
-   @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+   @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
 
     project = Hash.new
     project[:title] = 'My Test Project'
@@ -57,7 +57,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_get_project
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.get_project(1)
     response.to_yaml
     assert_equal('1', response['projects'][0]['id'])
@@ -66,7 +66,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_force_dispose
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.force_dispose(1)
     response.to_yaml
     assert_equal('1', response['projects'][0]['id'])
@@ -75,7 +75,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_quote
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.quote(" ")
     response.to_yaml
     assert_equal('0', response['quote']['rewardAmount'])
@@ -83,7 +83,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_get_read
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.get_read(1)
     response.to_yaml
     assert_equal('1', response['reads'][0]['id'])
@@ -92,7 +92,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_approve_read
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.approve_read(1)
     response.to_yaml
     assert_equal('1', response['reads'][0]['id'])
@@ -101,7 +101,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_reject_read
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.reject_read(1)
     response.to_yaml
     assert_equal('1', response['reads'][0]['id'])
@@ -110,7 +110,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_languages
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.languages()
     response.to_yaml
     assert_equal('ara', response['languages'][0]['id'])
@@ -119,7 +119,7 @@ class CarrotTest  < Test::Unit::TestCase
   end
 
   def test_gender_ages
-    @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX", true)
+    @lib = RubyCarrotDev::VBCarrot.new("XXX", 0, "XXX", 2)
     response = @lib.gender_ages()
     response.to_yaml
     assert_equal('baby', response['genderandages'][0]['code'])

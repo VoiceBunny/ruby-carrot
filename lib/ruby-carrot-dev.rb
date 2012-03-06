@@ -1,8 +1,9 @@
 
-module RubyCarrot
+module RubyCarrotDev
   class VBCarrot
 
-    API_BASE_URL 			= "api.voicebunny.com/"
+    API_LOCAL_URL     = "api.local.voicebunny.com/"
+    API_TEST_URL 			= "http://127.0.0.1:8080/test/"
 
     #Connection object
     @conn = nil
@@ -10,16 +11,29 @@ module RubyCarrot
     @api_user = nil
     @api_key = nil
 
-    def initialize(user, id, key)
+    def initialize(user, id, key, url=0)
       @api_id = id
       @api_user = user
       @api_key = key
 
-      setup
+      if(url==0)
+        setup_local
+      else
+        setup_test
+      end
     end
 
-    def setup
-        @conn = Faraday.new(:url =>("https://"+ @api_id.to_s+":"+@api_key +"@"+API_BASE_URL),:ssl => {:verify => false}) do |builder|
+    def setup_test
+      @conn = Faraday.new(:url =>(API_TEST_URL)) do |builder|
+          builder.use Faraday::Request::Multipart
+          builder.use Faraday::Request::UrlEncoded
+          builder.use Faraday::Response::ParseJson
+          builder.use Faraday::Adapter::NetHttp
+      end
+    end
+
+    def setup_local
+      @conn = Faraday.new(:url =>("https://"+ @api_id.to_s+":"+@api_key +"@"+API_LOCAL_URL),:ssl => {:verify => false}) do |builder|
           builder.use Faraday::Request::Multipart
           builder.use Faraday::Request::UrlEncoded
           builder.use Faraday::Response::ParseJson
