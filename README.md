@@ -8,7 +8,7 @@ If you need more information on how to use our library check the [installation g
 ```ruby
 
 # Get information
-vb_carrot = RubyCarrot::VBCarrot.new("XXX", 0, "XXX",0)
+vb_carrot = RubyCarrot::VBCarrot.new("XXX", 0, "XXX")
 languages = vb_carrot.languages
 languages.to_yaml
 puts languages
