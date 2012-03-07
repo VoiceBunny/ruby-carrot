@@ -9,9 +9,9 @@ If you need more information on how to use our library check the [installation g
 
 # Get information
 vb_carrot = RubyCarrot::VBCarrot.new("XXX", 0, "XXX")
-languages = vb_carrot.languages
-languages.to_yaml
-puts languages
+response = vb_carrot.languages
+response.to_yaml
+puts response['languages']
 
 # Post project
 project = {
@@ -20,12 +20,12 @@ project = {
 }
 response = vb_carrot.create_project(project)
 response.to_yaml
-puts response
+puts response['project']
 
 # Get a project
-project = vb_carrot.get_project(1)
-project.to_yaml
-puts project
+response = vb_carrot.get_project(1)
+response.to_yaml
+puts response['projects']
 ```
 
 ### Request a VoiceBunny API Key
@@ -35,7 +35,7 @@ To use this library you need to request an API Key in the [VoiceBunny.com Develo
 If you're not confortable with Ruby language, you can also check our other libraries:
 
 * [Python Carrot](https://github.com/Voice123/python-carrot)
-* Groovy Carrot
+* Groovy Carrot (Coming Soon)
 
 Or why not, build your own library from scratch checking the [API documentation](http://voicebunny.com/developers/index).
 
