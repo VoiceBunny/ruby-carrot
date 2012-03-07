@@ -1,3 +1,7 @@
+# Author::    Jorge Vargas  (mailto:jorge.vargas@voicebunny.com)
+# Copyright:: Copyright (c) 2008 Torrenegra IP, LLC.
+# License::   Distributed under Creative Commons CC-BY license http://creativecommons.org/licenses/by/3.0/
+
 require 'ruby-carrot-dev'
 require 'yaml'
 require 'faraday'
@@ -20,7 +24,8 @@ if(current_balance >= reward)
         script: script,
         specialInstructions: "I want the voice be similar to Bugs Bunny.",
         rewardAmount:reward,
-        rewardCurrency: 'usd'
+        rewardCurrency: 'usd',
+        test: '1'
     }
     vb_carrot.create_project(project)
     puts "Project successfully posted."
