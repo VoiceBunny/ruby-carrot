@@ -7,17 +7,17 @@ require 'yaml'
 require 'faraday'
 require 'faraday_middleware'
 
-vb_carrot = RubyCarrot::VBCarrot.new("XXX", 0, "XXX",0)
+vb_carrot = RubyCarrot::VBCarrot.new("xx", 0, "xxxxXXXXxxxxXXXX")
 balance = vb_carrot.balance
 balance.to_yaml
 puts "Your account balance is: "+ balance['balance']['amount'] +" "+ balance['balance']['currency']
-current_balance = balance['balance']['amount'].to_i
+current_balance = balance['balance']['amount'].to_f
 
 script = "What's up , folks?"
 quote = vb_carrot.quote(script)
 quote.to_yaml
 puts "Posting this script will cost: "+ quote['quote']['rewardAmount'] +" "+ quote['quote']['rewardCurrency']
-reward = quote['quote']['rewardAmount'].to_i
+reward = quote['quote']['rewardAmount'].to_f
 
 if(current_balance >= reward)
     project = {
