@@ -6,6 +6,12 @@ If you need more information on how to use our library check the [installation g
 ### Usage
 
 ```ruby
+# Imports
+require 'ruby-carrot-dev'
+require 'yaml'
+require 'faraday'
+require 'faraday_middleware'
+
 # Initialize the library
 vb_carrot = RubyCarrot::VBCarrot.new("XXX", 0, "XXX")
 
@@ -17,14 +23,15 @@ puts response['languages']
 # Post project
 project = {
     script: "Test project",
-    specialInstructions: "Posted from Ruby-Carrot"
+    specialInstructions: "Posted from Ruby-Carrot",
+    title: "Test Project"
 }
 response = vb_carrot.create_project(project)
 response.to_yaml
 puts response['project']
 
 # Get a project
-response = vb_carrot.get_project(1)
+response = vb_carrot.get_project(response['project']['id'])
 response.to_yaml
 puts response['projects']
 ```
