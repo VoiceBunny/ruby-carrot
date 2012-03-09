@@ -1,7 +1,7 @@
 # Ruby Carrot - VoiceBunny Library
 
-[Ruby Carrot](https://github.com/Voice123/ruby-carrot) is a Ruby library that provides connection to the [VoiceBunny.com](http://voicebunny.com) HTTP RESTful API, using the library [Faraday](https://github.com/technoweenie/faraday) for the HTTP request/response cycle.
-If you need more information on how to use our library check the [installation guide](https://github.com/Voice123/ruby-carrot/wiki/installation) or the [tutorial](https://github.com/Voice123/ruby-carrot/wiki/Use-tutorial).
+[Ruby Carrot](https://github.com/VoiceBunny/ruby-carrot) is a Ruby library that provides connection to the [VoiceBunny.com](http://voicebunny.com) HTTP RESTful API, using the library [Faraday](https://github.com/technoweenie/faraday) for the HTTP request/response cycle.
+If you need more information on how to use our library check the [installation guide](https://github.com/VoiceBunny/ruby-carrot/wiki/installation) or the [tutorial](https://github.com/VoiceBunny/ruby-carrot/wiki/Use-tutorial).
 
 ### Usage
 
