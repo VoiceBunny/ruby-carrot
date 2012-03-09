@@ -42,8 +42,9 @@ To use this library you need to request an API Key in the [VoiceBunny.com Develo
 ### Don't you like Ruby?
 If you're not confortable with Ruby language, you can also check our other libraries:
 
-* [Python Carrot](https://github.com/Voice123/python-carrot)
 * Groovy Carrot (Coming Soon)
+* [PHP Carrot](https://github.com/VoiceBunny/php-carrot)
+* [Python Carrot](https://github.com/VoiceBunny/python-carrot)
 
 Or why not, build your own library from scratch checking the [API documentation](http://voicebunny.com/developers/index).
 
