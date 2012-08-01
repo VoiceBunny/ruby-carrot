@@ -4,12 +4,12 @@
 
 Gem::Specification.new do |s|
  s.name        = 'ruby-carrot'
-  s.version     = '0.6.5'
-  s.date        = '2012-03-06'
+  s.version     = '0.7'
+  s.date        = '2012-08-01'
   s.summary     = "VoiceBunny carrot library"
   s.description = "VoiceBunny library for accessing API using Ruby."
   s.authors     = ["Jorge Vargas", "Mr. VoiceBunny"]
-  s.email       = 'jorge.vargas@voicebunny.com'
+  s.email       = 'api@voicebunny.com'
   s.files       = ["lib/ruby-carrot.rb"]
   s.homepage    =
     'http://voicebunny.com/developers/libraries'

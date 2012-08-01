@@ -25,9 +25,10 @@ class CarrotTest  < Test::Unit::TestCase
     @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX")
     response = @lib.all_projects
     response.to_yaml
+    puts response
     assert_equal('2', response['projects'][1]['id'])
     assert_equal('eng-us', response['projects'][1]['language'])
-    assert_equal('usd', response['projects'][1]['rewardCurrency'])
+    assert_equal('usd', response['projects'][1]['currency'])
   end
 
   def test_get_project
@@ -36,7 +37,7 @@ class CarrotTest  < Test::Unit::TestCase
     response.to_yaml
     assert_equal('1', response['projects'][0]['id'] )
     assert_equal('eng-us', response['projects'][0]['language'] )
-    assert_equal('usd', response['projects'][0]['rewardCurrency'])
+    assert_equal('usd', response['projects'][0]['currency'])
   end
 
   def test_create_project
@@ -45,18 +46,18 @@ class CarrotTest  < Test::Unit::TestCase
     project = Hash.new
     project[:title] = 'My Test Project'
     project[:script] = 'Hello world.'
-    project[:rewardAmount] = '9.81'
+    project[:price] = '9.81'
     project[:genderAndAge] = 'middleAgeMale'
     project[:language] = 'eng-us'
     project[:lifetime] = '1'
-    project[:rewardCurrency] = 'usd'
-    project[:specialInstructions] = 'Special instructions'
+    project[:currency] = 'usd'
+    project[:remarks] = 'Special instructions'
 
     response = @lib.create_project(project)
     response.to_yaml
     assert_equal('2', response['project']['id'])
     assert_equal('eng-us',  response['project']['language'])
-    assert_equal('usd',response['project']['rewardCurrency'])
+    assert_equal('usd',response['project']['currency'])
 
   end
 
@@ -66,7 +67,7 @@ class CarrotTest  < Test::Unit::TestCase
     response.to_yaml
     assert_equal('1', response['projects'][0]['id'])
     assert_equal('eng-us',  response['projects'][0]['language'])
-    assert_equal('usd', response['projects'][0]['rewardCurrency'])
+    assert_equal('usd', response['projects'][0]['currency'])
   end
 
   def test_force_dispose
@@ -75,15 +76,15 @@ class CarrotTest  < Test::Unit::TestCase
     response.to_yaml
     assert_equal('1', response['projects'][0]['id'])
     assert_equal('eng-us',  response['projects'][0]['language'])
-    assert_equal('usd', response['projects'][0]['rewardCurrency'])
+    assert_equal('usd', response['projects'][0]['currency'])
   end
 
   def test_quote
     @lib = RubyCarrot::VBCarrot.new("XXX", 0, "XXX")
     response = @lib.quote(" ")
     response.to_yaml
-    assert_equal('0', response['quote']['rewardAmount'])
-    assert_equal('usd', response['quote']['rewardCurrency'])
+    assert_equal('0', response['quote']['price'])
+    assert_equal('usd', response['quote']['currency'])
   end
 
   def test_get_read

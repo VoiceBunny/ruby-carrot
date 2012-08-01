@@ -2,7 +2,7 @@
 # Copyright:: Copyright (c) 2008 Torrenegra IP, LLC.
 # License::   Distributed under Creative Commons CC-BY license http://creativecommons.org/licenses/by/3.0/
 
-# This module hace the class that handle the connection
+# This module have the class that handle the connection
 # to the VoiceBunny API
 
 module RubyCarrotDev
@@ -66,14 +66,15 @@ module RubyCarrotDev
       resp = @conn.post 'projects/add.json', {
           title: project[:title],
           script: project[:script],
-          rewardAmount: project[:rewardAmount],
+          price: project[:price],
           genderAndAge: project[:genderAndAge],
           language: project[:language],
           lifetime: project[:lifetime],
           ping: project[:ping],
           test: project[:test],
-          rewardCurrency: project[:rewardCurrency],
-          specialInstructions: project[:specialInstructions]
+          currency: project[:currency],
+          remarks: project[:remarks],
+          timedRecording: project[:timedRecording]
         }
 
       resp.body
@@ -84,12 +85,17 @@ module RubyCarrotDev
       resp.body
     end
 
-    def quote(text, contest=0, maxContestEntries=3)
-      resp = @conn.post 'projects/quote.json', {
-          script: text,
-          contest: contest,
-          maxContestEntries: maxContestEntries
-      }
+    def quote(language, text="", numberOfCharacters=0, numberOfWords=0)
+      data = Hash.new
+      data[:language] = language
+      if numberOfCharacters != 0
+        data[:numberOfCharacters] = numberOfCharacters
+      elsif numberOfWords != 0
+        data[:numberOfWords] = numberOfWords
+      else
+        data[:script] = text
+      end
+      resp = @conn.post 'projects/quote.json', data
       resp.body
     end
 

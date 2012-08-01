@@ -58,14 +58,15 @@ module RubyCarrot
       resp = @conn.post 'projects/add.json', {
           title: project[:title],
           script: project[:script],
-          rewardAmount: project[:rewardAmount],
+          price: project[:price],
           genderAndAge: project[:genderAndAge],
           language: project[:language],
           lifetime: project[:lifetime],
           ping: project[:ping],
           test: project[:test],
-          rewardCurrency: project[:rewardCurrency],
-          specialInstructions: project[:specialInstructions]
+          currency: project[:currency],
+          remarks: project[:remarks],
+          timedRecording: project[:timedRecording]
         }
 
       resp.body
@@ -78,12 +79,17 @@ module RubyCarrot
     end
 
     # Returns the suggested amount of money, of a a project with the given script
-    def quote(text, contest=0, maxContestEntries=3)
-      resp = @conn.post 'projects/quote.json', {
-          script: text,
-          contest: contest,
-          maxContestEntries: maxContestEntries
-      }
+    def quote(language, text="", numberOfCharacters=0, numberOfWords=0)
+      data = Hash.new
+      data[:language] = language
+      if numberOfCharacters != 0
+        data[:numberOfCharacters] = numberOfCharacters
+      elsif numberOfWords != 0
+        data[:numberOfWords] = numberOfWords
+      else
+        data[:script] = text
+      end
+      resp = @conn.post 'projects/quote.json', data
       resp.body
     end
 
