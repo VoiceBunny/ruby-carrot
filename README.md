@@ -23,7 +23,7 @@ puts response['languages']
 # Post project
 project = {
     script: "Test project",
-    specialInstructions: "Posted from Ruby-Carrot",
+    remarks: "Posted from Ruby-Carrot",
     title: "Test Project"
 }
 response = vbCarrot.create_project(project)

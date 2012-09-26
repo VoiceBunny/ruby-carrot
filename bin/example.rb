@@ -31,8 +31,7 @@ if(current_balance >= reward)
         title: title,
         script: script.to_json,
         remarks: "I want the voice be similar to Bugs Bunny.",
-        price:reward,
-        rewardCurrency: 'usd'
+        price:reward
     }
     response = vbCarrot.create_project(project)
     if(response.has_key?("error"))
