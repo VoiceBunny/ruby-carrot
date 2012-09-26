@@ -39,6 +39,15 @@ puts response['projects']
 ### Request a VoiceBunny API Token
 To use this library you need to request an API Token in the [VoiceBunny.com Developer's Section](http://voicebunny.com/developers/token).
 
+### TODO
+
+* migrate the tests to Stubs instead of text files mocked JSON responses
+* update the tests
+
+### Contributing
+
+Feel free to fork our gem or add a pull request
+
 ### Don't you like Ruby?
 If you're not confortable with Ruby language, you can also check our other libraries:
 
