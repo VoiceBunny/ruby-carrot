@@ -55,10 +55,29 @@ module RubyCarrot
 
     # Create a project given a hashtable with the project information
     def create_project(project)
-      resp = @conn.post 'projects/add.json', {
+      resp = @conn.post 'projects/addSpeedy.json', {
           title: project[:title],
           script: project[:script],
           price: project[:price],
+          genderAndAge: project[:genderAndAge],
+          language: project[:language],
+          lifetime: project[:lifetime],
+          ping: project[:ping],
+          test: project[:test],
+          currency: project[:currency],
+          remarks: project[:remarks],
+          timedRecording: project[:timedRecording]
+        }
+
+      resp.body
+    end
+
+    # Create a booking project for a certain user
+    def create_booking_project(project)
+      resp = @conn.post 'projects/addBooking.json', {
+          title: project[:title],
+          script: project[:script],
+          talentID: project[:talentID],
           genderAndAge: project[:genderAndAge],
           language: project[:language],
           lifetime: project[:lifetime],
@@ -79,15 +98,18 @@ module RubyCarrot
     end
 
     # Returns the suggested amount of money, of a a project with the given script
-    def quote(language, text="", numberOfCharacters=0, numberOfWords=0)
+    def quote(params)
       data = Hash.new
-      data[:language] = language
-      if numberOfCharacters != 0
-        data[:numberOfCharacters] = numberOfCharacters
-      elsif numberOfWords != 0
-        data[:numberOfWords] = numberOfWords
+      data[:language] = params[:language]
+      data[:fulfilmentType] = params[:fulfilmentType]
+      data[:maxEntries] = params[:maxEntries]
+      data[:talentID] = params[:talentID]
+      if params.has_key?('numberOfCharacters')
+        data[:numberOfCharacters] = params[:numberOfCharacters]
+      elsif params.has_key?('numberOfWords')
+        data[:numberOfWords] = params[:numberOfWords]
       else
-        data[:script] = text
+        data[:script] = params[:script]
       end
       resp = @conn.post 'projects/quote.json', data
       resp.body
@@ -108,6 +130,34 @@ module RubyCarrot
     # Reject the read with the specified ID
     def reject_read(id)
       resp = @conn.get 'reads/reject/'+id.to_s+'.json'
+      resp.body
+    end
+
+    # Quote how much a revision of a given read cost
+    def revision_quote(readId, params)
+      data = Hash.new
+      data[:voiceBunnyError] = params[:voiceBunnyError]
+      if params.has_key?('charactersAddedOrChanged')
+        data[:charactersAddedOrChanged] = params[:charactersAddedOrChanged]
+      else
+        data[:wordsAddedOrChanged] = params[:wordsAddedOrChanged]
+      end
+      resp = @conn.get 'reads/'+readId.to_s+'/revision/quote.json', data
+      resp.body
+    end
+
+    # Request a revision for a given read
+    def revision_add(readId, params)
+      data = Hash.new
+      data[:ping] = params[:ping]
+      data[:instructions] = params[:instructions]
+      data[:voiceBunnyError] = params[:voiceBunnyError]
+      if params.has_key?('charactersAddedOrChanged')
+        data[:charactersAddedOrChanged] = params[:charactersAddedOrChanged]
+      else
+        data[:wordsAddedOrChanged] = params[:wordsAddedOrChanged]
+      end
+      resp = @conn.get 'reads/'+readId.to_s+'/revision/add.json', data
       resp.body
     end
 

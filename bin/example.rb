@@ -7,8 +7,9 @@ require 'yaml'
 require 'faraday'
 require 'faraday_middleware'
 
-vb_carrot = RubyCarrotDev::VBCarrot.new("xx", 0, "xxxxXXXXxxxxXXXX")
-balance = vb_carrot.balance
+vbCarrot = RubyCarrotDev::VBCarrot.new( 0, "xxxxXXXXxxxxXXXX")
+
+balance = vbCarrot.balance
 balance.to_yaml
 puts "Your account balance is: "+ balance['balance']['amount'] +" "+ balance['balance']['currency']
 current_balance = balance['balance']['amount'].to_f
@@ -16,9 +17,13 @@ current_balance = balance['balance']['amount'].to_f
 title = "My test project"
 script = {:part001=>"What's up, folks?", :part002=>"What's up, doc?"}
 language = 'eng-us'
-quote = vb_carrot.quote(language, script)
+quoteParams = {
+    language: language,
+    script: script
+}
+quote = vbCarrot.quote(quoteParams)
 quote.to_yaml
-puts "Posting this script will cost: "+ quote['quote']['price'].to_s() +" "+ quote['quote']['currency']
+puts "Posting this project will cost: "+ quote['quote']['price'].to_s() +" "+ quote['quote']['currency']
 reward = quote['quote']['price'].to_f
 
 if(current_balance >= reward)
@@ -29,9 +34,9 @@ if(current_balance >= reward)
         price:reward,
         rewardCurrency: 'usd'
     }
-    response = vb_carrot.create_project(project)
+    response = vbCarrot.create_project(project)
     if(response.has_key?("error"))
-        puts "Something happened when attempting to post the project."
+        puts "Something happened: " + response['error']['message'].to_s
     else
         puts "Project successfully posted."
     end
