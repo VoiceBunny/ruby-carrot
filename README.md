@@ -13,7 +13,7 @@ require 'faraday'
 require 'faraday_middleware'
 
 # Initialize the library
-vbCarrot = RubyCarrot::VBCarrot.new(0, "XXX")
+vbCarrot = RubyCarrot::VBCarrot.new(0,'xxxxXXXXxxxxXXXX')
 
 # Get information
 response = vbCarrot.languages
